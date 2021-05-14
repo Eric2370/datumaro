@@ -1,4 +1,4 @@
-# datumaro feature list
+# Datumaro Feature List
 
 * 本文件用于罗列datumaro commandline直接可用的工具
 * 同时罗列出不可以用但是后续可能需要用到的工具
@@ -8,23 +8,20 @@
 * 现datumaro工具在command line直接下载运行会有bug
 * 于是我们就拉其代码到本地，并且使用用python 3.7.6以下的版本运行datumaro
 
-## 安装步骤
+## Datumaro feature 介绍
 
-### 1. 安装k8s相关系统软件(以apt为例)
+### 1. 数据集(dataset)转换
 
-* 由于国内网络限制，不能按照k8s官网方式安装
-* 用aliyun的代替
-
-```sh
-curl -s https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add -
-
-sudo tee /etc/apt/sources.list.d/kubernetes.list <
-deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
-EOF
-
-sudo apt update
-sudo apt install -y kubelet kubeadm kubectl
-```
+* convert PASCAL VOC dataset to COCO format
+- Convert PASCAL VOC dataset to COCO format, keep only images with `cat` class presented:
+  ```bash
+  # Download VOC dataset:
+  # http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
+  datum convert --input-format voc --input-path <path/to/voc> \
+                --output-format coco \
+                --filter '/item[annotation/label="cat"]' \
+                -- --reindex 1 # avoid annotation id conflicts
+  ```
 
 ### 2. 准备k8s基础组件docker镜像
 
