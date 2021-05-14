@@ -1,15 +1,12 @@
-# 本地搭建单机k8s集群步骤(linux环境)
+# datumaro feature list
 
-* 本地安装k8s有多种方式，搭建最小集群调试可以使用minikube之类工具
-* 本教程使用kubeadm安装，安装方式接近生产环境
-* 主要解决问题是google被gfw拦截
-* 使用calico作为cni网络插件(目前公司主要用weavenet，在向calico转型。calico和flannel是业界最流行的cni插件)
+* 本文件用于罗列datumaro commandline直接可用的工具
+* 同时罗列出不可以用但是后续可能需要用到的工具
 
-## 安装前要求
-
-* linux环境(本教程以ubuntu/debian为例)
-* 有网络
-* 已安装docker，了解docker基本命令
+## 使用须知
+* datumaro gihub: https://github.com/openvinotoolkit/datumaro
+* 现datumaro工具在command line直接下载运行会有bug
+* 于是我们就拉其代码到本地，并且使用用python 3.7.6以下的版本运行datumaro
 
 ## 安装步骤
 
