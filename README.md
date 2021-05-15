@@ -118,19 +118,18 @@
       -p <project dir>
   ```
 
-### 10. Get project info
+### 10. 比较项目(project)
 
-- 查看项目细节:
+- 比较两个存在不同文件夹的项目的区别:
   ```bash
-  # This command outputs project status information
-  datum info \
-      -p <project dir>
+  # The command compares two datasets and saves the results in the specified directory
+  datum diff <other_project_dir> -o <save_dir>
   ```
   
   
   
-## model是否需要去和dataset一起展开inference
-## 
+## model是否需要去和dataset一起展开inference (Run model)
+## 是否需要register model
   
   
   
